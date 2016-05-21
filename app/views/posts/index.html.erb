@@ -1,0 +1,28 @@
+<h1>Forside</h1>
+
+<% if user_signed_in? %>
+  <% @posts.each do |post| %>
+  	<p>
+  		<%= post.content %><br>
+  		<%= post.user.email %><br>
+  		-----------------
+  	</p>
+
+    <% post.comments.each do |comment| %>
+
+      <%= comment.body %>
+
+  <% end %>
+  <%= simple_form_for post do |p| %>
+    <%= p.simple_fields_for :comments do |c| %>
+      <%= c.text_area :body %>
+      <%= c.submit %>
+    <% end %>
+  <% end %>
+
+<% end %>
+
+<% else %>
+<p>Log ind for at se det her</p>
+
+<% end %>

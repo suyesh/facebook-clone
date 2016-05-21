@@ -1,0 +1,12 @@
+<h1>Opret en ny post</h1>
+
+<%= form_for @post do |f| %>
+	<p>
+		<%= f.label :post %><br>
+		<%= f.text_field :content %>
+		
+	</p>
+
+		<%= f.submit 'Send', class: 'btn btn-primary' %>
+
+	<% end %>
